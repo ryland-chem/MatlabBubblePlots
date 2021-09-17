@@ -31,8 +31,7 @@ for i = 1:numRows
     intColOne = [intColOne, int];
 end
 
-%transpose
-disp(intColOne')
+disp(intColOne)
 
 
 
