@@ -24,18 +24,22 @@ columnTwo = arrayData(:,2);
 %integers (int64) from double
 %using for loop and populating an
 %empty matrix
-intColOne = [];
+newColOne = [];
 
 for i = 1:numRows
-    int = int64(columnOne(i));
-    intColOne = [intColOne, int];
+    int = strcat("x", num2str(columnOne(i)));
+    newColOne = [newColOne, int];
 end
 
 %transpose
-disp(intColOne')
+newColOneVert = newColOne';
 
+newTable = table(newColOneVert, columnTwo);
 
+disp(newTable);
 
-%dataUnstacked = unstack(tableData, response, sample);
+dataUnstacked = unstack(newTable, 'columnTwo', 'newColOneVert');
+
+unique(newColOneVert);
 
 
